@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Entity
-@Data  // Lombok: Genera getters, setters, toString, etc.
+@Data  
 @Table(name = "books")
 public class Llibre {
     @Id
@@ -23,11 +23,11 @@ public class Llibre {
     private String editorial;
 
     @Column(name = "data_publicacio")
-    private LocalDate dataPublicacio;  // Cambiado de String a LocalDate
+    private LocalDate dataPublicacio; 
 
     @Column(name = "tematica")
     private String tematica;
 
-    @Column(name = "ISBN", unique = true, nullable = false)  // Mapea al campo UNIQUE NOT NULL
+    @Column(name = "ISBN", unique = true, nullable = false) 
     private String isbn;
 }

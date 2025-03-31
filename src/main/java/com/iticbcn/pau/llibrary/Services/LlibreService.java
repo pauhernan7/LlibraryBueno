@@ -14,28 +14,24 @@ public class LlibreService {
     @Autowired
     private LlibreRepository llibreRepository;
 
-    // Método para guardar un libro con validación de ISBN
     public Llibre saveLlibre(Llibre llibre) {
         validateISBN(llibre.getIsbn());
         checkDuplicateISBN(llibre.getIsbn());
         return llibreRepository.save(llibre);
     }
 
-    // Método para validar formato ISBN (10 o 13 dígitos numéricos)
     private void validateISBN(String isbn) {
         if (isbn == null || !isbn.matches("^\\d{10}(\\d{3})?$")) {
             throw new IllegalArgumentException("Format d'ISBN invàlid: ha de tenir 10 o 13 dígits numèrics");
         }
     }
 
-    // Método para verificar ISBN duplicado
     private void checkDuplicateISBN(String isbn) {
         if (llibreRepository.findByIsbn(isbn).isPresent()) {
             throw new IllegalArgumentException("L'ISBN ja existeix a la base de dades");
         }
     }
 
-    // Métodos básicos CRUD
     public List<Llibre> getAllLlibres() {
         return llibreRepository.findAll();
     }
@@ -48,7 +44,6 @@ public class LlibreService {
         return llibreRepository.findByIsbn(isbn);
     }
 
-    // Métodos adicionales requeridos por la actividad
     public Set<Llibre> findByTitol(String titol) {
         return llibreRepository.findByTitol(titol);
     }
@@ -57,7 +52,6 @@ public class LlibreService {
         return llibreRepository.findByTitolAndEditorial(titol, editorial);
     }
 
-    // Método para validar ISBN (público para uso del controlador)
     public boolean isValidISBN(String isbn) {
         try {
             validateISBN(isbn);
