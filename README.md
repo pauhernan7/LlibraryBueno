@@ -2,6 +2,12 @@
 
 Al README.md cal que documenteu les proves que feu. No cal que expliqueu cap funcionament de l’aplicació a menys que feu cap cosa diferent a la proposada (i que sigui correcta i hagueu entès).
 
+## Verificació de la creació de l'usuari Pau
+![](image-5.png)
+
+## Verificació que li hem donat tots els permisos
+![](image-6.png)
+
 ## Entrem com a usuari Pau
 ![](image.png)
 
